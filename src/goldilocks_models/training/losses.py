@@ -1,0 +1,1 @@
+"""Custom loss functions and objectives: ordinal CE / EMD for kindex, asymmetric MAE for k-density under-prediction, interval losses for resource and k_line_density targets — torch nn.Module and XGBoost custom-objective variants."""

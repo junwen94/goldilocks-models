@@ -1,0 +1,56 @@
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.eggs/
+.python-version  
+
+# ── Tooling caches ────────────────────────────────────────
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ── Virtual environments ──────────────────────────────────
+.venv
+
+# ── Editor / OS ───────────────────────────────────────────
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ── Notebooks ─────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── ML run artefacts (project-root only — leading slash anchors them
+#    so they cannot collide with package subdirectories like
+#    src/goldilocks_models/data/) ──
+/experiments/         # local checkpoints, logs, predictions
+/mlruns/              # MLflow tracking store (default location)
+/mlartifacts/         # MLflow artifact store
+/artifacts/           # exported model artefacts (registry output)
+/outputs/             # Hydra default per-run output dir
+/multirun/            # Hydra multirun output dir
+/wandb/               # if we ever switch to Weights & Biases
+*.ckpt
+*.pt
+*.onnx
+*.joblib
+*.safetensors
+
+# ── Data snapshots (project-root only) ────────────────────
+/data/
+/snapshots/
+*.parquet
+
+# ── Secrets ───────────────────────────────────────────────
+.env
+.env.*
+.claude                          
+.venv/.gitignore     
+

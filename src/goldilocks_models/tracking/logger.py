@@ -1,0 +1,1 @@
+"""MLflow logger adapter: start_run / log_params / log_metrics / log_artifact / end_run, with a context-manager wrapper, dataset-hash pinning, and exception-safe finalisation. User-facing API hides MLflow types so the backend can be swapped later."""

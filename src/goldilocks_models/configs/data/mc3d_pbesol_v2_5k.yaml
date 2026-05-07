@@ -1,0 +1,42 @@
+# Phase 1 data snapshot: 5,000-structure sample of MC3D PBEsol v2,
+# k-mesh sweeps tagged under / just_right / over per (structure, pseudo).
+
+name: mc3d_pbesol_v2_5k
+
+# Parquet path resolved relative to a SNAPSHOT_ROOT env var so it is
+# portable across users (HPC home dir vs laptop).
+snapshot_path: ${oc.env:SNAPSHOT_ROOT}/mc3d_pbesol_v2_5k/2026-05-07.parquet
+
+# Feature columns to load. Full schema in 2-goldilocks-data/docs/data_contract.md.
+features:
+  - structure_id
+  - formula
+  - spacegroup_number
+  - crystal_system
+  - n_atoms
+  - cell_volume
+  - element_set
+  - n_electrons_neutral
+  - contains_lanthanide
+  - contains_actinide
+  - contains_heavy
+  - heavy_elements
+  - likely_magnetic
+  - magnetic_elements
+  - is_metal_guess
+  - pseudo_family
+  - reciprocal_b1
+  - reciprocal_b2
+  - reciprocal_b3
+  - anisotropy_ratio        # max(b_i) / min(b_i)
+
+# Optional LLM-encoder embedding column (populated when the cache is built).
+# Set to null to disable.
+embedding_column: structure_embedding_v0
+
+# Split kind from goldilocks_models.data.splits.
+split:
+  kind: element_disjoint    # random | element_disjoint | spacegroup_disjoint | stratified
+  seed: 42
+  test_fraction: 0.10
+  val_fraction: 0.10

@@ -1,0 +1,31 @@
+# Kpoints task: predict kindex (1-indexed) given structure + pseudo.
+# Full task definition: goldilocks_models.tasks.kpoints.
+
+name: kpoints
+
+# Target column: smallest kindex tagged just_right per (structure, pseudo).
+target_column: just_right_kindex
+
+# Loss form. Phase 1 starts with mae_kindex; upgrade to ordinal_ce / emd
+# if off-by-many predictions hurt convergence_fraction.
+loss: mae_kindex            # mae_kindex | ordinal_ce | emd
+
+# Metrics computed on val + test (slice-wise, per evaluation/).
+metrics:
+  primary:   exact_match_kindex
+  secondary: [within_pm1_kindex, convergence_fraction]
+
+# Reporting slices (engine in evaluation/slices.py).
+slices:
+  - crystal_system
+  - is_metal_guess
+  - contains_heavy
+  - cell_volume_bin
+  - anisotropy_ratio_bin
+  - pseudo_family
+
+# Schedule generator pinned for label semantics; goes into the manifest.
+schedule:
+  generator: goldilocks_core.kmesh.build_kmesh_entries
+  max_index: 30
+  generator_version: ${oc.env:GOLDILOCKS_CORE_SHA}

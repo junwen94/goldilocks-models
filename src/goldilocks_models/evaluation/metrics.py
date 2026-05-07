@@ -1,0 +1,1 @@
+"""Metric implementations: MAE / RMSE / accuracy / top-k / EMD / convergence-fraction / tail-bucket MAPE; faithfulness / completeness / calibration for explanation. Pure numpy-in-numpy-out functions of (y_true, y_pred)."""

@@ -1,0 +1,1 @@
+"""Typer entry point: the ``app`` symbol exposed as ``gm``, plus the four Phase 1 commands (train / eval / predict / register). Each command resolves its Hydra config and routes through tracking + registry as needed."""

@@ -1,0 +1,25 @@
+# XGBoost classical baseline. The wrapper in
+# goldilocks_models.models.classical.xgboost picks XGBRegressor or
+# XGBClassifier based on the task's loss field.
+
+name: xgboost
+
+# XGBoost native hyperparameters.
+n_estimators:     500
+max_depth:        8
+learning_rate:    0.05
+min_child_weight: 1
+subsample:        0.85
+colsample_bytree: 0.85
+reg_alpha:        0.0
+reg_lambda:       1.0
+
+# Early stopping on the validation split.
+early_stopping_rounds: 50
+
+# Random seed.
+seed: 42
+
+# Whether to consume the LLM-encoder embedding column from data.embedding_column.
+# Phase 1 default: off until the embedding cache is populated.
+use_embeddings: false

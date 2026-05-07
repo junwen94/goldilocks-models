@@ -1,0 +1,20 @@
+# @package _global_
+#
+# Phase 1 baseline: classical XGBoost on kpoints with the 5k MC3D
+# PBEsol v2 snapshot and element-disjoint split. Run with:
+#
+#   gm train experiment=kpoints_xgb_baseline
+
+defaults:
+  - /data:  mc3d_pbesol_v2_5k
+  - /task:  kpoints
+  - /model: xgboost
+  - _self_
+
+experiment:
+  name: kpoints_xgb_baseline_v0
+  description: "Phase 1 XGBoost baseline on kpoints; element-disjoint split; no LLM embeddings."
+  tags:
+    phase:  "1"
+    family: classical
+    task:   kpoints

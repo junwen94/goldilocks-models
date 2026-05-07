@@ -1,0 +1,15 @@
+# Hydra root config. Pick an experiment with `gm train experiment=<name>`;
+# experiments live in configs/experiment/ and compose the data / task /
+# model axes plus any overrides.
+
+defaults:
+  - _self_
+  - experiment: ???   # required; must be specified at command line
+
+# Per-run output directory (resolved configs, logs). Gitignored.
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${experiment.name}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}_${experiment.name}
+    subdir: ${hydra.job.num}_${hydra.job.id}
