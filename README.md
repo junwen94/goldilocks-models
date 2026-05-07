@@ -8,7 +8,7 @@ which orchestrates recommendation at inference time.
 
 ## Documentation
 
-- **[PLAN.md](PLAN.md)** — full design source of truth (contract, architecture, decisions, roadmap).
+- **[PLAN.md](docs/PLAN.md)** — full design source of truth (contract, architecture, decisions, roadmap).
 - **[docs/](docs/)** — derived chapters, added on demand.
 
 ## Phase 1 scope
